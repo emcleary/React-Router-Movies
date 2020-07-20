@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 const MovieList = props => {
   return (
@@ -12,6 +13,7 @@ const MovieList = props => {
 
 function MovieDetails({ movie }) {
   const { title, director, metascore } = movie;
+  const url = useRouteMatch();
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -21,6 +23,7 @@ function MovieDetails({ movie }) {
       <div className="movie-metascore">
         Metascore: <strong>{metascore}</strong>
       </div>
+      <Link to={`movies/${movie.id}`}>Select</Link>
     </div>
   );
 }
